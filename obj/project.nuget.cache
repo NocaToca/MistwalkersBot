@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iUhjna6u1luG7PTjz7YuX0BOolV5nJd68HzZ72RgNwiAuDAnmolhYgtF9l9maRE4xRXlO/8PhvxQq3S13AUOMg==",
+  "dgSpecHash": "PMV2t7rJCIuuoIldDCFGtVJGQdbOoMldsfFTrlzYeCHB48DJudHkri9PPhiT2FM99WpPPWVrYgOH6j4d+6teQw==",
   "success": true,
-  "projectFilePath": "D:\\Discord\\Mistwalkers\\Mistwalkers.csproj",
+  "projectFilePath": "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gavin\\.nuget\\packages\\dsharpplus\\4.4.0-nightly-01464\\dsharpplus.4.4.0-nightly-01464.nupkg.sha512",
     "C:\\Users\\Gavin\\.nuget\\packages\\dsharpplus.commandsnext\\4.4.0-nightly-01464\\dsharpplus.commandsnext.4.4.0-nightly-01464.nupkg.sha512",

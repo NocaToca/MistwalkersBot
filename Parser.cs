@@ -145,7 +145,7 @@ namespace Parsing{
                 if(duration_match.Success){
                     //We'll do duration stuff when we get to it
                 } else {
-                    user_effect.status_info = new Effect.StatusInformation(false, 0, new Sleep(), false);
+                    user_effect.status_info = new Effect.StatusInformation(false, 0, ParseStatus(status_match.Groups[1].Value), false);
                 }
             }
 
@@ -153,6 +153,18 @@ namespace Parsing{
 
 
 
+        }
+
+        public Status ParseStatus(string status_string){
+            switch(status_string){
+                case "burn":
+                    return Status.Burn;
+                case "sleep":
+                    return Status.Sleep;
+                default:
+                    throw new ArgumentException("Invalid Status Argument");
+
+            }
         }
 
         public Tuple<Roll, Typing> ParseDamage(string damage_string){

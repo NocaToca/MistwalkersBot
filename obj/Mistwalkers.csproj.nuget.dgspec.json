@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Discord\\Mistwalkers\\Mistwalkers.csproj": {}
+    "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj": {}
   },
   "projects": {
-    "D:\\Discord\\Mistwalkers\\Mistwalkers.csproj": {
+    "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Discord\\Mistwalkers\\Mistwalkers.csproj",
+        "projectUniqueName": "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
         "projectName": "Mistwalkers",
-        "projectPath": "D:\\Discord\\Mistwalkers\\Mistwalkers.csproj",
+        "projectPath": "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
         "packagesPath": "C:\\Users\\Gavin\\.nuget\\packages\\",
-        "outputPath": "D:\\Discord\\Mistwalkers\\obj\\",
+        "outputPath": "D:\\Discord\\MistwalkersBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
