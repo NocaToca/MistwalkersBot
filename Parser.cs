@@ -3,6 +3,8 @@ using Types;
 using Moves;
 using Characters;
 
+#pragma warning disable
+
 namespace Parsing{
 
     public class Parser{
@@ -14,13 +16,117 @@ namespace Parsing{
         public Move InterpretMove(string name, string type, int accuracy, int range, string damage, string effectString){
             Move move = new Move();
             move.name = name;
-            move.ability_type = ""; // not used in this example
+            //move.ability_type = ""; // not used in this example
             move.accuracy = accuracy;
             Tuple<Roll, Typing> tuple = ParseDamage(damage);
             move.damage = tuple.Item1;
             move.type = tuple.Item2;
             //move.effect = InterpretEffect(effectString);
             return move;
+        }
+
+        public Moves.Range ParseRange(string range_string){
+            switch(range_string.ToLower().Trim()){
+                case "melee":
+                    Moves.Range melee_range = new Moves.Range();
+                    melee_range.ranged_type = Moves.Range.Type.Melee;
+                    melee_range.tile_range = 1;
+                    return melee_range;
+                case "self":
+                    Moves.Range self_range = new Moves.Range();
+                    self_range.ranged_type = Moves.Range.Type.Melee;
+                    self_range.tile_range = 0;
+                    return self_range;
+                default:
+                    Regex room_regex = new Regex(@"room\{([^{}]+)\}");
+                    Match room_match = room_regex.Match(range_string.ToLower());
+
+                    if(room_match.Success){
+                        Moves.Range room_range = new Moves.Range();
+                        room_range.ranged_type = Moves.Range.Type.Room;
+                        room_range.tile_range = int.Parse(room_match.Groups[1].Value);
+                        return room_range;
+                    }
+
+                    if(range_string.ToLower().Contains("tiles")){
+                        string digit = range_string.ToLower().Replace("tiles", "");
+                        Moves.Range range = new Moves.Range();
+                        range.ranged_type = Moves.Range.Type.Single;
+                        range.tile_range = int.Parse(digit);
+                        return range;
+                    }
+
+                    throw new ArgumentException("Can not parse Range string: " + range_string);
+
+            }
+
+        }
+
+        public int ParseAccuracy(string accuracy_string){
+
+            try{
+                return int.Parse(accuracy_string);
+                #pragma warning disable 0168
+            }catch(FormatException e){ //not using the exception except for catching it is very intentional
+                #pragma warning restore 0168
+                return int.MaxValue;
+            }
+
+        }
+
+        public Move.MoveType ParseMoveType(string move_type){
+
+            switch(move_type.ToLower()){
+                case "lesser special":
+                    return Move.MoveType.Special;
+                case "greater special":
+                    return Move.MoveType.Special;
+                case "lesser status":
+                    return Move.MoveType.Status;
+                case "greater status":
+                    return Move.MoveType.Status;
+                case "lesser physical":
+                    return Move.MoveType.Physical;
+                case "greater physical":
+                    return Move.MoveType.Physical;
+                case "weather":
+                    return Move.MoveType.Weather;
+                default:
+                    throw new ArgumentException("Unknown Movetype: " + move_type);
+            }
+
+        }
+
+        public Weather ParseWeather(string weather_string){
+            switch(weather_string.ToLower()){
+                case "hail":
+                    return Weather.Hail;
+                case "sandstorm":
+                    return Weather.SandStorm;
+                case "rain":
+                    return Weather.Rain;
+                case "clear":
+                    return Weather.Clear;
+                case "sunny":
+                    return Weather.Sunny;
+                default:
+                    throw new ArgumentException("Unknown Weather String: " + weather_string);
+            }
+        }
+
+        public Character.PointType ParsePointType(string point_type_string){
+            string s = point_type_string.ToLower();
+
+            switch(s){
+                case "hp":
+                    return Character.PointType.HealthPoints;
+                case "bp":
+                    return Character.PointType.BellyPoints;
+                case "pp":
+                    return Character.PointType.PowerPoints;
+                default:
+                    throw new ArgumentException();
+            }
         }
         
         //Let's keep in mind what can happen for each effect:
@@ -95,6 +201,8 @@ namespace Parsing{
 
         }
 
+        
+
         public void ParseEffect(string effect_string){
             //We can do this incrementally, first assuming there is one effect for each
             string parsing_string = effect_string.ToLower();
@@ -155,14 +263,74 @@ namespace Parsing{
 
         }
 
+        public Character.IgnoreType ParseIgnoreType(string ignore_type_string){
+            switch(ignore_type_string){
+                case "defense":
+                    return Character.IgnoreType.Defense;
+                case "attack":
+                    return Character.IgnoreType.Attack;
+                case "specialattack":
+                    return Character.IgnoreType.Special_Attack;
+                case "specialdefense":
+                    return Character.IgnoreType.Special_Defense;
+                case "speed":
+                    return Character.IgnoreType.Speed;
+                default:
+                    throw new ArgumentException("Invalid ignore type");
+            }
+
+        }
+
+        public Character.StatType ParseStatType(string ignore_type_string){
+            switch(ignore_type_string){
+                case "defense":
+                    return Character.StatType.Defense;
+                case "attack":
+                    return Character.StatType.Attack;
+                case "specialattack":
+                    return Character.StatType.Special_Attack;
+                case "specialdefense":
+                    return Character.StatType.Special_Defense;
+                case "speed":
+                    return Character.StatType.Speed;
+                case "accuracy":
+                    return Character.StatType.Accuracy;
+                case "evasion":
+                    return Character.StatType.Evasion;
+                default:
+                    throw new ArgumentException("Invalid ignore type");
+            }
+
+        }
+
         public Status ParseStatus(string status_string){
             switch(status_string){
                 case "burn":
                     return Status.Burn;
                 case "sleep":
                     return Status.Sleep;
+                case "dot":
+                    return Status.DoT;
+                case "paralysis":
+                    return Status.Paralysis;
+                case "flinch":
+                    return Status.Flinch;
+                case "confusion":
+                    return Status.Confusion;
+                case "poison":
+                    return Status.Poison;
+                case "immune":
+                    return Status.Immune;
+                case "prone":
+                    return Status.Prone;
+                case "frozen":
+                    return Status.Frozen;
+                case "charge":
+                    return Status.Charge;
+                case "reflect":
+                    return Status.Reflect;
                 default:
-                    throw new ArgumentException("Invalid Status Argument");
+                    throw new ArgumentException("Invalid Status Argument: " + status_string);
 
             }
         }
@@ -223,12 +391,16 @@ namespace Parsing{
 
 
             //Now we just have to grab the typing.
-            Regex type_regex = new Regex(@"\b(\w+)\s*damage$");
+            Regex type_regex = new Regex(@"\b(\w+)\s*damage\s*$");
             Match type_match = type_regex.Match(parsing_string);
 
             Typing move_type = null;
             if(match.Success){
-                move_type = ParseType(type_match.Groups[1].Value);
+                try{
+                    move_type = ParseType(type_match.Groups[1].Value);
+                }catch(Exception e){
+                    throw new ArgumentException(e.Message + "\nString Inputted: " + type_match.Groups[1].Value);
+                }
             } else {
                 throw new ArgumentException("Invalid Damage Arguments");
             }

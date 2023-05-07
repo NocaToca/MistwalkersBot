@@ -12,9 +12,6 @@ using System.Threading.Tasks;
 
     Most of this code is ripped from the DSharp example bots, but it basically just turns on the bot
 
-    API key: 1sFq24-uoXpq29LFg5kjzMS-Dr96TcUf
-    
-
 */
 public class Bot{
     #pragma warning disable 8618

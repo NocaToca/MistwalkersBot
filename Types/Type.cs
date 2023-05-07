@@ -1,6 +1,8 @@
 using System;
 using Characters;
 
+#pragma warning disable
+
 namespace Types{
 
     public abstract class Typing{
@@ -29,6 +31,11 @@ namespace Types{
         public static Steel Steel {get{return new Steel();}}
         public static Fairy Fairy {get{return new Fairy();}}
 
+        public static float RESIST = 0.5f;
+        public static float IMMUNE = 0.0f;
+        public static float WEAK = 2.0f;
+        public static float BASE = 1.0f;
+
 
         public Typing(){
 
@@ -47,6 +54,10 @@ namespace Types{
             };
         }
 
+        //Using a move, applies a bonus AGAINST the type based off of the chart table
+        //I.E the move_type is the type of the move and the ApplyBonus is the pokemon, theoritically
+        public abstract float ApplyBonus(Typing move_type);
+
         public override string ToString(){
             return "N/A";
         }
@@ -54,91 +65,667 @@ namespace Types{
     }
 
     public partial class Normal : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Fighting){
+                return WEAK;
+            }
+
+            if(move_type is Ghost){
+                return IMMUNE;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Normal";
         }
     }
     public partial class Water : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Fire){
+                return RESIST;
+            }
+
+            if(move_type is Water){
+                return RESIST;
+            }
+
+            if(move_type is Grass){
+                return WEAK;
+            }
+
+            if(move_type is Electric){
+                return WEAK;
+            }
+
+            if(move_type is Ice){
+                return RESIST;
+            }
+
+            if(move_type is Steel){
+                return RESIST;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Water";
         }
     }
     public partial class Fire : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Fire){
+                return RESIST;
+            }
+
+            if(move_type is Water){
+                return WEAK;
+            }
+
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Ice){
+                return RESIST;
+            }
+
+            if(move_type is Ground){
+               return WEAK;
+            }
+
+            if(move_type is Bug){
+                return RESIST;
+            }
+
+            if(move_type is Rock){
+                return WEAK;
+            }
+
+            if(move_type is Steel){
+                return RESIST;
+            }
+
+            if(move_type is Fairy){
+                return RESIST;
+            }
+
+            return BASE;
+
+        }
+
         public override string ToString(){
             return "Fire";
         }
     }
     public partial class Grass : Typing{
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Fire){
+                return WEAK;
+            }
+
+            if(move_type is Water){
+                return RESIST;
+            }
+
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Electric){
+                return RESIST;
+            }
+
+            if(move_type is Ice){
+                return WEAK;
+            }
+
+            if(move_type is Poison){
+                return WEAK;
+            }
+
+            if(move_type is Ground){
+                return RESIST;
+            }
+
+            if(move_type is Flying){
+                return WEAK;
+            }
+
+            if(move_type is Bug){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Grass";
         }
     }
     public partial class Electric : Typing{
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Electric){
+                return RESIST;
+            }
+
+            if(move_type is Ground){
+                return WEAK;
+            }
+
+            if(move_type is Flying){
+                return RESIST;
+            }
+
+            if(move_type is Steel){
+                return RESIST;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Electric";
         }
     }
     public partial class Ice : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Fire){
+                return WEAK;
+            }
+
+            if(move_type is Ice){
+                return RESIST;
+            }
+
+            if(move_type is Fighting){
+                return WEAK;
+            }
+
+            if(move_type is Rock){
+                return WEAK;
+            }
+
+            if(move_type is Steel){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Ice";
         }
     }
     public partial class Fighting : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Flying){
+                return WEAK;
+            }
+
+            if(move_type is Psychic){
+                return WEAK;
+            }
+
+            if(move_type is Bug){
+                return RESIST;
+            }
+
+            if(move_type is Rock){
+                return RESIST;
+            }
+
+            if(move_type is Dark){
+                return RESIST;
+            }
+
+            if(move_type is Fairy){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Fighting";
         }
     }
     public partial class Poison : Typing{
+        public override float ApplyBonus(Typing move_type){
+
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Fighting){
+                return RESIST;
+            }
+
+            if(move_type is Poison){
+                return RESIST;
+            }
+
+            if(move_type is Ground){
+                return WEAK;
+            }
+
+            if(move_type is Psychic){
+                return WEAK;
+            }
+
+            if(move_type is Bug){
+                return RESIST;
+            }
+
+            if(move_type is Fairy){
+                return RESIST;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Poison";
         }
     }
     public partial class Ground : Typing{
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Water){
+                return WEAK;
+            }
+
+            if(move_type is Grass){
+                return WEAK;
+            }
+
+            if(move_type is Electric){
+                return IMMUNE;
+            }
+
+            if(move_type is Ice){
+                return WEAK;
+            }
+
+            if(move_type is Poison){
+                return RESIST;
+            }
+
+            if(move_type is Rock){
+                return RESIST;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Ground";
         }
     }
     public partial class Flying : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Electric){
+                return WEAK;
+            }
+
+            if(move_type is Ice){
+                return WEAK;
+            }
+
+            if(move_type is Fighting){
+                return RESIST;
+            }
+
+            if(move_type is Ground){
+                return IMMUNE;
+            }
+
+            if(move_type is Bug){
+                return RESIST;
+            }
+
+            if(move_type is Rock){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Flying";
         }
     }
     public partial class Psychic : Typing{
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Fighting){
+                return RESIST;
+            }
+
+            if(move_type is Psychic){
+                return RESIST;
+            }
+
+            if(move_type is Bug){
+                return WEAK;
+            }
+
+            if(move_type is Ghost){
+                return WEAK;
+            }
+
+            if(move_type is Dark){
+                return WEAK;
+            }
+
+            return BASE;
+
+        }
+
         public override string ToString(){
             return "Psychic";
         }
     }
     public partial class Bug : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Fire){
+                return WEAK;
+            }
+
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Fighting){
+                return RESIST;
+            }
+
+            if(move_type is Ground){
+                return RESIST;
+            }
+
+            if(move_type is Flying){
+                return WEAK;
+            }
+
+            if(move_type is Rock){
+                return WEAK;
+            }
+
+            return BASE;
+
+        }
+
         public override string ToString(){
             return "Bug";
         }
     }
     public partial class Rock : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Normal){
+                return RESIST;
+            }
+
+            if(move_type is Fire){
+                return RESIST;
+            }
+
+            if(move_type is Water){
+                return WEAK;
+            }
+
+            if(move_type is Grass){
+                return WEAK;
+            }
+
+            if(move_type is Fighting){
+                return WEAK;
+            }
+
+            if(move_type is Poison){
+                return RESIST;
+            }
+
+            if(move_type is Ground){
+                return WEAK;
+            }
+
+            if(move_type is Flying){
+                return RESIST;
+            }
+
+            if(move_type is Steel){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Rock";
         }
     }
     public partial class Ghost : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Normal){
+                return IMMUNE;
+            }
+
+            if(move_type is Fighting){
+                return IMMUNE;
+            }
+
+            if(move_type is Poison){
+                return RESIST;
+            }
+
+            if(move_type is Ghost){
+                return WEAK;
+            }
+
+            if(move_type is Dark){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Ghost";
         }
     }
     public partial class Dark : Typing{
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Fighting){
+                return WEAK;
+            }
+
+            if(move_type is Psychic){
+                return IMMUNE;
+            }
+
+            if(move_type is Bug){
+                return WEAK;
+            }
+
+            if(move_type is Ghost){
+                return RESIST;
+            }
+
+            if(move_type is Dark){
+                return RESIST;
+            }
+
+            if(move_type is Fairy){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Dark";
         }
     }
     public partial class Dragon : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Fire){
+                return RESIST;
+            }
+
+            if(move_type is Water){
+                return RESIST;
+            }
+
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Electric){
+                return RESIST;
+            }
+
+            if(move_type is Ice){
+                return WEAK;
+            }
+
+            if(move_type is Dragon){
+                return WEAK;
+            }
+
+            if(move_type is Fairy){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Dragon";
         }
     }
     public partial class Steel : Typing{
+
+        public override float ApplyBonus(Typing move_type){
+            
+            if(move_type is Normal){
+                return RESIST;
+            }
+
+            if(move_type is Fire){
+                return WEAK;
+            }
+
+            if(move_type is Grass){
+                return RESIST;
+            }
+
+            if(move_type is Ice){
+                return RESIST;
+            }
+
+            if(move_type is Fighting){
+                return WEAK;
+            }
+
+            if(move_type is Poison){
+                return IMMUNE;
+            }
+
+            if(move_type is Ground){
+                return WEAK;
+            }
+
+            if(move_type is Flying){
+                return RESIST;
+            }
+
+            if(move_type is Psychic){
+                return RESIST;
+            }
+
+            if(move_type is Bug){
+                return RESIST;
+            }
+
+            if(move_type is Rock){
+                return RESIST;
+            }
+
+            if(move_type is Rock){
+                return RESIST;
+            }
+
+            if(move_type is Dragon){
+                return RESIST;
+            }
+
+            if(move_type is Steel){
+                return RESIST;
+            }
+
+            if(move_type is Fairy){
+                return RESIST;
+            }
+
+            return BASE;
+
+        }
+
         public override string ToString(){
             return "Steel";
         }
     }
     public partial class Fairy : Typing{
+        public override float ApplyBonus(Typing move_type){
+            if(move_type is Fighting){
+                return RESIST;
+            }
+
+            if(move_type is Poison){
+                return WEAK;
+            }
+
+            if(move_type is Bug){
+                return RESIST;
+            }
+
+            if(move_type is Dragon){
+                return IMMUNE;
+            }
+
+            if(move_type is Dark){
+                return RESIST;
+            }
+
+            if(move_type is Steel){
+                return WEAK;
+            }
+
+            return BASE;
+        }
+
         public override string ToString(){
             return "Fairy";
         }

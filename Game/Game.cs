@@ -1,9 +1,11 @@
 using System;
 using Characters;
-
+#pragma warning disable
 public static class Game{
 
     public static List<Character> active_characters;
+
+    public static Weather current_weather;
 
     public static void AddCharacter(Character c){
         active_characters.Add(c);
