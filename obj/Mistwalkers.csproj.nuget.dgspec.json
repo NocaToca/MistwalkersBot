@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[4.4.0-nightly-01464, )"
             },
+            "DSharpPlus.SlashCommands": {
+              "target": "Package",
+              "version": "[4.4.0-nightly-01464, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[6.2.3, )"

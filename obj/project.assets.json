@@ -35,6 +35,19 @@
           "lib/netstandard2.0/DSharpPlus.CommandsNext.dll": {}
         }
       },
+      "DSharpPlus.SlashCommands/4.4.0-nightly-01464": {
+        "type": "package",
+        "dependencies": {
+          "DSharpPlus": "4.4.0-nightly-01464",
+          "Microsoft.Extensions.DependencyInjection": "5.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/DSharpPlus.SlashCommands.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DSharpPlus.SlashCommands.dll": {}
+        }
+      },
       "EPPlus/6.2.3": {
         "type": "package",
         "dependencies": {
@@ -1530,6 +1543,20 @@
         "dsharpplus.png",
         "lib/netstandard2.0/DSharpPlus.CommandsNext.dll",
         "lib/netstandard2.0/DSharpPlus.CommandsNext.xml"
+      ]
+    },
+    "DSharpPlus.SlashCommands/4.4.0-nightly-01464": {
+      "sha512": "eBew134uDRtQoxWEvspZrQ9BbeHrmenN6jW00fYILa1bY15Hy/WRtuPjNf7ej8uFg1AVZkJ3cAtWr3lQiAMeoQ==",
+      "type": "package",
+      "path": "dsharpplus.slashcommands/4.4.0-nightly-01464",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dsharpplus.png",
+        "dsharpplus.slashcommands.4.4.0-nightly-01464.nupkg.sha512",
+        "dsharpplus.slashcommands.nuspec",
+        "lib/netstandard2.0/DSharpPlus.SlashCommands.dll",
+        "lib/netstandard2.0/DSharpPlus.SlashCommands.xml"
       ]
     },
     "EPPlus/6.2.3": {
@@ -4967,6 +4994,7 @@
     "net6.0": [
       "DSharpPlus >= 4.4.0-nightly-01464",
       "DSharpPlus.CommandsNext >= 4.4.0-nightly-01464",
+      "DSharpPlus.SlashCommands >= 4.4.0-nightly-01464",
       "EPPlus >= 6.2.3"
     ]
   },
@@ -4976,11 +5004,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
+      "projectUniqueName": "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
       "projectName": "Mistwalkers",
-      "projectPath": "d:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
+      "projectPath": "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
       "packagesPath": "C:\\Users\\Gavin\\.nuget\\packages\\",
-      "outputPath": "d:\\Discord\\MistwalkersBot\\obj\\",
+      "outputPath": "D:\\Discord\\MistwalkersBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5014,6 +5042,10 @@
             "version": "[4.4.0-nightly-01464, )"
           },
           "DSharpPlus.CommandsNext": {
+            "target": "Package",
+            "version": "[4.4.0-nightly-01464, )"
+          },
+          "DSharpPlus.SlashCommands": {
             "target": "Package",
             "version": "[4.4.0-nightly-01464, )"
           },

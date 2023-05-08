@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using DSharpPlus.SlashCommands;
 
 /*
     The good ol' bot!
@@ -56,7 +57,10 @@ public class Bot{
         };
 
         commands = client.UseCommandsNext(commandsConfig);
+        var slash = client.UseSlashCommands();
 
+        slash.RegisterCommands<CharacterCommands>();
+        slash.RegisterCommands<MoveCommands>();
 
         await client.ConnectAsync();
 

@@ -8,6 +8,7 @@ namespace Abilities{
         public enum Type{Universal, Typal, Individual}
 
         public Type type;
+        public string name;
 
         public Ability(Type type){
             this.type = type;

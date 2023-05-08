@@ -10,5 +10,6 @@
     <PackageReference Include="DSharpPlus" Version="4.4.0-nightly-01464"/>
     <PackageReference Include="DSharpPlus.CommandsNext" Version="4.4.0-nightly-01464"/>
     <PackageReference Include="EPPlus" Version="6.2.3"/>
+    <PackageReference Include="DSharpPlus.SlashCommands" Version="4.4.0-nightly-01464"/>
   </ItemGroup>
 </Project>

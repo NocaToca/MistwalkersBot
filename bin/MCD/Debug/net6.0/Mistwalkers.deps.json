@@ -10,6 +10,7 @@
         "dependencies": {
           "DSharpPlus": "4.4.0-nightly-01464",
           "DSharpPlus.CommandsNext": "4.4.0-nightly-01464",
+          "DSharpPlus.SlashCommands": "4.4.0-nightly-01464",
           "EPPlus": "6.2.3"
         },
         "runtime": {
@@ -42,6 +43,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/DSharpPlus.CommandsNext.dll": {
+            "assemblyVersion": "4.4.0.1464",
+            "fileVersion": "4.4.0.1464"
+          }
+        }
+      },
+      "DSharpPlus.SlashCommands/4.4.0-nightly-01464": {
+        "dependencies": {
+          "DSharpPlus": "4.4.0-nightly-01464",
+          "Microsoft.Extensions.DependencyInjection": "5.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DSharpPlus.SlashCommands.dll": {
             "assemblyVersion": "4.4.0.1464",
             "fileVersion": "4.4.0.1464"
           }
@@ -919,6 +932,13 @@
       "sha512": "sha512-pp0+etpee/S7UmtvP4Ip20OsFuavIEDvPnoUAmda7FObtWYCtII/JPVgir2S/ucxCoS3A5xr0LK9KxETcycsfw==",
       "path": "dsharpplus.commandsnext/4.4.0-nightly-01464",
       "hashPath": "dsharpplus.commandsnext.4.4.0-nightly-01464.nupkg.sha512"
+    },
+    "DSharpPlus.SlashCommands/4.4.0-nightly-01464": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eBew134uDRtQoxWEvspZrQ9BbeHrmenN6jW00fYILa1bY15Hy/WRtuPjNf7ej8uFg1AVZkJ3cAtWr3lQiAMeoQ==",
+      "path": "dsharpplus.slashcommands/4.4.0-nightly-01464",
+      "hashPath": "dsharpplus.slashcommands.4.4.0-nightly-01464.nupkg.sha512"
     },
     "EPPlus/6.2.3": {
       "type": "package",

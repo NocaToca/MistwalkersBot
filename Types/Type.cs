@@ -5,6 +5,16 @@ using Characters;
 
 namespace Types{
 
+    public struct AttributeBonuses{
+        public List<AttributeType> type;
+        public List<int> bonus;
+
+        public AttributeBonuses(List<AttributeType> type, List<int> bonus){
+            this.type = type;
+            this.bonus = bonus;
+        }
+    }
+
     public abstract class Typing{
 
         public enum Order{Primary, Secondary};
@@ -58,8 +68,17 @@ namespace Types{
         //I.E the move_type is the type of the move and the ApplyBonus is the pokemon, theoritically
         public abstract float ApplyBonus(Typing move_type);
 
+        public abstract AttributeBonuses PureBonuses();
+        public abstract AttributeBonuses PrimaryBonuses();
+        public abstract AttributeBonuses SecondaryBonuses();
+
         public override string ToString(){
             return "N/A";
+        }
+
+        public override bool Equals(object? obj){
+            if(obj == null) return false;
+            return this.GetType() == obj.GetType();
         }
 
     }

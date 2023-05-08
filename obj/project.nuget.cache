@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "j2VXczc3F/gfg7X8IQOmGg/bho/swyPo2hDNt8T7j2AyBdIMt5iFOFnFTENL4nEOp/Q15ehZkeJurzqXl21jvw==",
+  "dgSpecHash": "X6CKvICNz5pmm54TlDdEdaPfKs2hmYerAH8HqvOdjCDj9rZlMU6Y690PWbMB/4BdOpFr+bEJfPl74eV32rBbvA==",
   "success": true,
   "projectFilePath": "D:\\Discord\\MistwalkersBot\\Mistwalkers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gavin\\.nuget\\packages\\dsharpplus\\4.4.0-nightly-01464\\dsharpplus.4.4.0-nightly-01464.nupkg.sha512",
     "C:\\Users\\Gavin\\.nuget\\packages\\dsharpplus.commandsnext\\4.4.0-nightly-01464\\dsharpplus.commandsnext.4.4.0-nightly-01464.nupkg.sha512",
+    "C:\\Users\\Gavin\\.nuget\\packages\\dsharpplus.slashcommands\\4.4.0-nightly-01464\\dsharpplus.slashcommands.4.4.0-nightly-01464.nupkg.sha512",
     "C:\\Users\\Gavin\\.nuget\\packages\\epplus\\6.2.3\\epplus.6.2.3.nupkg.sha512",
     "C:\\Users\\Gavin\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\Gavin\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",

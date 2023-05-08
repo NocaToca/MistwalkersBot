@@ -1,6 +1,7 @@
 using System;
 using Types;
 using Characters;
+using DSharpPlus.Entities;
 
 #pragma warning disable
 
@@ -98,6 +99,24 @@ namespace Moves{
             s += "Effect Information: " + new_line + effect_information;
 
             return s;
+        }
+
+        public DiscordEmbed BuildEmbed(){
+
+            DiscordEmbedBuilder embed = new DiscordEmbedBuilder{
+                Title = name,
+                Description = "Ability Type: " + ability_type.ToString() + " | Damage Type:" + type.ToString() + " | Internal ID: " + id.ToString()
+            };
+
+            embed.AddField("Range Information: ", range.ToString());
+
+            embed.AddField("Damage Calculation: ", ((damage == null) ? "None" : damage.ToString()));
+
+            embed.AddField("Description: ", description);
+
+            embed.AddField("Effect Information: ", ((move_effect == null) ? "None" : move_effect.ToString()));
+
+            return embed;
         }
 
         public string GetInfo(){

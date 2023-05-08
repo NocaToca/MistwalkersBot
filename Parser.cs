@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
 using Types;
 using Moves;
+using Natures;
 using Characters;
 
 #pragma warning disable
@@ -475,6 +476,62 @@ namespace Parsing{
             }
         }
 
-    }
+    
 
+        public static NatureType ParseNatureType(string nature_type_string){
+            switch(nature_type_string.ToLower()){
+                case "brave":
+                    return NatureType.Brave;
+                case "naughty":
+                    return NatureType.Naughty;
+                case "impish":
+                    return NatureType.Impish;
+                case "quirky":
+                    return NatureType.Quirky;
+                case "jolly":
+                    return NatureType.Jolly;
+                case "adamant":
+                    return NatureType.Adamant;
+                case "serious":
+                    return NatureType.Serious;
+                case "bashful":
+                    return NatureType.Bashful;
+                case "lonely":
+                    return NatureType.Lonely;
+                case "hasty":
+                    return NatureType.Hasty;
+                case "rash":
+                    return NatureType.Rash;
+                case "relaxed":
+                    return NatureType.Relaxed;
+                case "hardy":
+                    return NatureType.Hardy;
+                case "mild":
+                    return NatureType.Mild;
+                case "gentle":
+                    return NatureType.Gentle;
+                case "naive":
+                    return NatureType.Naive;
+                case "modest":
+                    return NatureType.Modest;
+                case "docile":
+                    return NatureType.Docile;
+                case "lax":
+                    return NatureType.Lax;
+                case "sassy":
+                    return NatureType.Sassy;
+                case "quiet":
+                    return NatureType.Quiet;
+                case "calm":
+                    return NatureType.Calm;
+                case "bold":
+                    return NatureType.Bold;
+                case "timid":
+                    return NatureType.Timid;
+                default:
+                    throw new ArgumentException("Invalid nature type string: " + nature_type_string);
+            }
+        }
+
+    }
 }
