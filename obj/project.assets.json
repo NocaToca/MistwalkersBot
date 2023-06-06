@@ -4999,7 +4999,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gavin\\.nuget\\packages\\": {}
+    "C:\\Users\\Gavin\\.nuget\\packages\\": {},
+    "C:\\Users\\Gavin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5010,8 +5011,12 @@
       "packagesPath": "C:\\Users\\Gavin\\.nuget\\packages\\",
       "outputPath": "D:\\Discord\\MistwalkersBot\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Users\\Gavin\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\Gavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gavin\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

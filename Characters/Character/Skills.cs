@@ -1,4 +1,4 @@
-
+using DSharpPlus.SlashCommands;
 
 namespace Characters{
 
@@ -7,27 +7,87 @@ namespace Characters{
 /****************************************************************SKILLS****************************************************************************************************/
 
         public enum Skill{
+            [ChoiceName("Acrobatics")]
             Acrobatics,
+            [ChoiceName("Athletics")]
             Athletics,
+            [ChoiceName("Deception")]
             Deception,
+            [ChoiceName("History")]
             History,
+            [ChoiceName("Insight")]
             Insight,
+            [ChoiceName("Intimidation")]
             Intimidation,
+            [ChoiceName("Investigation")]
             Investigation,
+            [ChoiceName("Medicine")]
             Medicine,
+            [ChoiceName("Nature")]
             Nature,
+            [ChoiceName("Perception")]
             Perception,
+            [ChoiceName("Performance")]
             Performance,
+            [ChoiceName("Persuasion")]
             Persuasion,
+            [ChoiceName("Religion")]
             Religion,
+            [ChoiceName("Sleight of Hand")]
             Slieght_of_Hand,
+            [ChoiceName("Stealth")]
             Stealth,
+            [ChoiceName("Survival")]
             Survival,
+            [ChoiceName("Aura")]
             Aura,
+            [ChoiceName("Instinct")]
             Instinct
         }
 
         public List<Skill> proficient_skills;
+
+        public int RollSkill(Skill skill){
+            AttributeType type = GrabRelatedAttribute(skill);
+            int bonus = attributes.GetRollBonus(type);
+
+            return bonus + ((proficient_skills.Contains(skill)) ? 2 : 0);
+        }
+
+        public AttributeType GrabRelatedAttribute(Skill skill){
+            switch (skill){
+                case Skill.Acrobatics:
+                case Skill.Slieght_of_Hand:
+                case Skill.Stealth:
+                    return AttributeType.Dexterity;
+
+                case Skill.Athletics:
+                    return AttributeType.Strength;
+
+                case Skill.Deception:
+                case Skill.Intimidation:
+                case Skill.Performance:
+                case Skill.Persuasion:
+                    return AttributeType.Charisma;
+
+                case Skill.History:
+                case Skill.Insight:
+                case Skill.Investigation:
+                case Skill.Medicine:
+                case Skill.Nature:
+                case Skill.Religion:
+                case Skill.Survival:
+                    return AttributeType.Wisdom;
+
+                case Skill.Aura:
+                case Skill.Instinct:
+                case Skill.Perception:
+                    return AttributeType.Intelligence;
+
+                default:
+                    throw new ArgumentException("Invalid skill.");
+            }
+        }
 
         private void InitSkills(SkillFields skill_fields){
             proficient_skills = new List<Skill>();

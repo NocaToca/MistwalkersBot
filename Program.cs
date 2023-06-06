@@ -67,13 +67,13 @@ internal class Program{
         Move stockpile = mi.InterpretMove(move_cell2);
 
         Character c = new Character(true, "test");
-        c.AddMove(swallow);
-        c.AddMove(stockpile);
-        c.UseMove("stockpile", null);
-        c.UseMove("stockpile", null);
-        c.PrintSpecial("stockpile");
-        c.UseMove("swallow", null);
-        c.PrintSpecial("stockpile");
+        // c.AddMove(swallow);
+        // c.AddMove(stockpile);
+        // c.UseMove("stockpile", null);
+        // c.UseMove("stockpile", null);
+        // c.PrintSpecial("stockpile");
+        // c.UseMove("swallow", null);
+        // c.PrintSpecial("stockpile");
     }
 
     

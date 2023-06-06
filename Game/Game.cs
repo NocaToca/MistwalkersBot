@@ -17,10 +17,44 @@ public static class Game{
 
     public static Weather current_weather;
 
+    public static Scenario? current_scenario;
+
     static bool initialized = false;
 
     public static void AddCharacter(Character c){
         active_characters.Add(c.name.ToLower(), c);
+    }
+
+    public static bool InScenario(){
+        return current_scenario == null;
+    }
+
+    public static void VoidScenario(){
+        current_scenario = null;
+    }
+
+    public static void SetNewScenario(Scenario scenario){
+        current_scenario = scenario;
+    }
+
+    public static Character GetCharacter(ulong discord_id){
+        if(discord_id == 215975377770774528){
+            return GetCharacter("Kindle");
+        }
+        if(discord_id == 178505518938193920){
+            return GetCharacter("Kindle");
+        }
+        if(discord_id == 148414279182319616){
+            return GetCharacter("Narcis");
+        }
+        if(discord_id == 291199236781899776){
+            return GetCharacter("Ryoji");
+        }
+        if(discord_id == 396480177770594315){
+            return GetCharacter("Volo");
+        }
+
+        throw new ArgumentException("Unknown discord user");
     }
 
     public static Character GetCharacter(string name){
@@ -37,7 +71,7 @@ public static class Game{
 
     public static DiscordEmbed GetMoveList(int page){
         DiscordEmbedBuilder embed = new DiscordEmbedBuilder{
-            Title = "Move List"
+            Title = "Move List | Page " + page.ToString() + " of " + ((moves.Count/25) + 1).ToString()
         };
 
         string desc = "";
@@ -131,6 +165,28 @@ public static class Game{
         Random ran = new Random();
         return ran.Next(1, max+1);
     }
+
+    public static ulong gm_id = 215975377770774528;
+
+    public static bool IsGm(ulong id){return id == gm_id;}
+
+    public static List<Character> GrabCharacters(string characters){
+        string[] split_string = characters.Split(",");
+        List<Character> _characters = new List<Character>();
+
+        foreach(string characater in split_string){
+            try{
+                Character c = Game.GetCharacter(characater.ToLower().Trim());
+                _characters.Add(c);
+                Debug.WriteToDebugFile(c.name);
+            }catch(Exception e){
+                throw new ArgumentException("Could not find character: " + characater);
+            }
+        }
+
+        return _characters;
+    }
+
 
 
 }

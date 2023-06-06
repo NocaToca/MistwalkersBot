@@ -14,6 +14,16 @@ public class Roll{
         this.dependent_rolls = dependent_rolls;
     }
 
+    //We assume we are rolling a d20
+    public static int RollDie(){
+        return RollDie(20);
+    }
+
+    public static int RollDie(int die){
+        Random ran = new Random();
+        return ran.Next(1, die+1);
+    }
+
     public float MakeRoll(Character c){
         float sum = 0.0f;
 
@@ -21,10 +31,9 @@ public class Roll{
             sum += weights[i] + c.attributes.GetValue(dependent_rolls[i]);
         }
 
-        Random ran = new Random();
 
         foreach(int die in dice){
-            sum += ran.Next(1, die+1);
+            sum += RollDie(die);
         }
 
         return sum;

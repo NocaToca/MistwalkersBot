@@ -219,8 +219,9 @@ namespace Characters{
         public bool MakeSavingThrow(AttributeType saving_throw_type){
             Random ran = new Random();
 
-            float roll = ran.Next(0, 21);
+            float roll = ran.Next(1, 21);
             roll += attributes.GetRollBonus(saving_throw_type);
+            Debug.WriteToDebugFile("Roll: " + roll + " | Ran: " + ran);
 
             return roll > 10;
         }

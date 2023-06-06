@@ -1,16 +1,23 @@
 
 using Natures;
+using DSharpPlus.SlashCommands;
 
 #pragma warning disable
 
 namespace Characters{
 
     public enum AttributeType{
+        [ChoiceName("Strength")]
         Strength,
+        [ChoiceName("Constitution")]
         Constitution,
+        [ChoiceName("Dexterity")]
         Dexterity,
+        [ChoiceName("Intelligence")]
         Intelligence,
+        [ChoiceName("Wisdom")]
         Wisdom,
+        [ChoiceName("Charisma")]
         Charisma
     }
     

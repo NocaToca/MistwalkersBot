@@ -1,0 +1,13 @@
+Roll: 8 | Ran: System.Random
+27.5
+Roll: 20 | Ran: System.Random
+22.5
+14
+Roll: 14 | Ran: System.Random
+19.5
+14
+Roll: 7 | Ran: System.Random
+22.5
+14
+Rolling
+Rolling

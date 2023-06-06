@@ -89,22 +89,24 @@ namespace Characters{
             KillEvent += event_action;
         }
 
-        public void ApplyDamage(float damage){
-            effective_stats.health -= damage;
+        public unsafe void ApplyDamage(float damage){
+            *main_points.current_health_points -= damage;
 
-            if(effective_stats.health <= 0){
+            if(*main_points.current_health_points <= 0){
                 //we're going to die but we don't have anything here to do that yet
                 dead = true;
             }
         }
 
         public float GetDamageEval(float damage, Move.MoveType type){
+            Debug.WriteToDebugFile(damage.ToString());
             if(type == Move.MoveType.Special){
-                return damage - (attributes.GetValue(AttributeType.Wisdom))/4;
+                return damage - ((attributes.GetValue(AttributeType.Wisdom))/4);
             }
 
             if(type == Move.MoveType.Physical){
-                return damage - (attributes.GetValue(AttributeType.Constitution))/4;
+                Debug.WriteToDebugFile(attributes.GetValue(AttributeType.Constitution).ToString());
+                return damage - ((attributes.GetValue(AttributeType.Constitution))/4);
             }
 
             throw new ArgumentException("Why are we applying damage for a status effect");

@@ -61,6 +61,8 @@ public class Bot{
 
         slash.RegisterCommands<CharacterCommands>();
         slash.RegisterCommands<MoveCommands>();
+        slash.RegisterCommands<GMCommands>();
+        slash.RegisterCommands<CombatCommands>();
 
         await client.ConnectAsync();
 

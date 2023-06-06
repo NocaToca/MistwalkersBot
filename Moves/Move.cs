@@ -105,7 +105,7 @@ namespace Moves{
 
             DiscordEmbedBuilder embed = new DiscordEmbedBuilder{
                 Title = name,
-                Description = "Ability Type: " + ability_type.ToString() + " | Damage Type:" + type.ToString() + " | Internal ID: " + id.ToString()
+                Description = "Ability Type: " + ability_type.ToString() + " | Damage Type: " + type.ToString() + " | Internal ID: " + id.ToString()
             };
 
             embed.AddField("Range Information: ", range.ToString());
