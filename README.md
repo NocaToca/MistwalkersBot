@@ -23,3 +23,5 @@ Here we can note the effect of Fire Fang as stated on the doc (apply status\{bur
 
 This means Fire Fang can also apply burn, which it does here!
 ![Fire Fang but Burn](https://github.com/NocaToca/MistwalkersBot/blob/main/Example%20Gifs/burn_example.gif)
+
+Keep in mind this is a rough outline for the bot, this does not showcase all features!
