@@ -56,3 +56,16 @@ Kindle
 Roll: 3 | Ran: System.Random
 23.5
 14
+Rolling
+Hi Noca!
+Kindle
+Ryoji
+Roll: 18 | Ran: System.Random
+26.5
+14
+Hi Noca!
+Kindle
+Ryoji
+Roll: 4 | Ran: System.Random
+24.5
+14
