@@ -11,3 +11,48 @@ Roll: 7 | Ran: System.Random
 14
 Rolling
 Rolling
+Rolling
+Hi Noca!
+Hi Noca!
+Kindle
+Ryoji
+21.5
+Roll: 10 | Ran: System.Random
+22.5
+14
+Hi Noca!
+Kindle
+Ryoji
+Roll: 2 | Ran: System.Random
+20.5
+14
+Rolling
+Rolling
+Hi Noca!
+Kindle
+Ryoji
+Roll: 20 | Ran: System.Random
+26.5
+14
+Rolling
+Hi Noca!
+Kindle
+Ryoji
+Roll: 18 | Ran: System.Random
+27.5
+14
+Rolling
+Hi Noca!
+Kindle
+Hi Noca!
+Kindle
+Ryoji
+Roll: 9 | Ran: System.Random
+25.5
+14
+Hi Noca!
+Ryoji
+Kindle
+Roll: 3 | Ran: System.Random
+23.5
+14
